@@ -5,70 +5,80 @@
       "nombre": "Avatar",
       "estreno": 2009,
       "genero": "Ciencia ficción",
-      "duracion": 162
+      "duracion": 162,
+      "calificacion": 7.8
     },
     {
       "id": 2,
-      "nombre": "Avengers",
+      "nombre": "Avengers: Endgame",
       "estreno": 2019,
       "genero": "Acción",
-      "duracion": 181
+      "duracion": 181,
+      "calificacion": 8.4
     },
     {
       "id": 3,
       "nombre": "Titanic",
       "estreno": 1997,
       "genero": "Drama",
-      "duracion": 195
+      "duracion": 195,
+      "calificacion": 7.9
     },
     {
       "id": 4,
-      "nombre": "Star Wars",
+      "nombre": "Star Wars: El despertar de la Fuerza",
       "estreno": 2015,
       "genero": "Aventura",
-      "duracion": 138
+      "duracion": 138,
+      "calificacion": 7.8
     },
     {
       "id": 5,
       "nombre": "Jurassic World",
       "estreno": 2015,
       "genero": "Aventura",
-      "duracion": 124
+      "duracion": 124,
+      "calificacion": 7.0
     },
     {
       "id": 6,
       "nombre": "El Rey León",
       "estreno": 2019,
       "genero": "Animación",
-      "duracion": 118
+      "duracion": 118,
+      "calificacion": 6.9
     },
     {
       "id": 7,
       "nombre": "Frozen II",
       "estreno": 2019,
       "genero": "Animación",
-      "duracion": 103
+      "duracion": 103,
+      "calificacion": 6.8
     },
     {
       "id": 8,
-      "nombre": "Harry Potter",
+      "nombre": "Harry Potter y las Reliquias de la Muerte - Parte 2",
       "estreno": 2011,
       "genero": "Fantasía",
-      "duracion": 130
+      "duracion": 130,
+      "calificacion": 8.1
     },
     {
       "id": 9,
       "nombre": "Black Panther",
       "estreno": 2018,
       "genero": "Superhéroes",
-      "duracion": 134
+      "duracion": 134,
+      "calificacion": 7.3
     },
     {
       "id": 10,
       "nombre": "Joker",
       "estreno": 2019,
       "genero": "Thriller",
-      "duracion": 122
+      "duracion": 122,
+      "calificacion": 8.4
     }
   ]
 }
