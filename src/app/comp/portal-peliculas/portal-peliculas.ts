@@ -13,7 +13,6 @@ import { PeliculaService } from '../../services/pelicula-service';
   selector: 'app-portal-peliculas',
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './portal-peliculas.html',
-  styleUrl: './portal-peliculas.css',
 })
 export class PortalPeliculas {
   mostrarFormulario = false;

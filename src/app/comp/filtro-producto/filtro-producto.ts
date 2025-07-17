@@ -8,7 +8,6 @@ import { productos } from './data/data';
   selector: 'app-filtro-producto',
   imports: [CommonModule, FormsModule, BuscarPipe],
   templateUrl: './filtro-producto.html',
-  styleUrl: './filtro-producto.css',
 })
 export class FiltroProducto {
   productos: any[] = productos;

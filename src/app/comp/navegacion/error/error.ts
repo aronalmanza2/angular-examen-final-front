@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-error',
   imports: [],
   templateUrl: './error.html',
-  styleUrl: './error.css'
 })
 export class Error {
 
