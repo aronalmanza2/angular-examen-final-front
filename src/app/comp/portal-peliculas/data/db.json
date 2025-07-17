@@ -1,0 +1,74 @@
+{
+  "peliculas": [
+    {
+      "id": 1,
+      "nombre": "Avatar",
+      "estreno": 2009,
+      "genero": "Ciencia ficción",
+      "duracion": 162
+    },
+    {
+      "id": 2,
+      "nombre": "Avengers",
+      "estreno": 2019,
+      "genero": "Acción",
+      "duracion": 181
+    },
+    {
+      "id": 3,
+      "nombre": "Titanic",
+      "estreno": 1997,
+      "genero": "Drama",
+      "duracion": 195
+    },
+    {
+      "id": 4,
+      "nombre": "Star Wars",
+      "estreno": 2015,
+      "genero": "Aventura",
+      "duracion": 138
+    },
+    {
+      "id": 5,
+      "nombre": "Jurassic World",
+      "estreno": 2015,
+      "genero": "Aventura",
+      "duracion": 124
+    },
+    {
+      "id": 6,
+      "nombre": "El Rey León",
+      "estreno": 2019,
+      "genero": "Animación",
+      "duracion": 118
+    },
+    {
+      "id": 7,
+      "nombre": "Frozen II",
+      "estreno": 2019,
+      "genero": "Animación",
+      "duracion": 103
+    },
+    {
+      "id": 8,
+      "nombre": "Harry Potter",
+      "estreno": 2011,
+      "genero": "Fantasía",
+      "duracion": 130
+    },
+    {
+      "id": 9,
+      "nombre": "Black Panther",
+      "estreno": 2018,
+      "genero": "Superhéroes",
+      "duracion": 134
+    },
+    {
+      "id": 10,
+      "nombre": "Joker",
+      "estreno": 2019,
+      "genero": "Thriller",
+      "duracion": 122
+    }
+  ]
+}
