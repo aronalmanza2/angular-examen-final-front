@@ -1,0 +1,67 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+    <div class="container-fluid">
+      <!-- { Logo } -->
+      <a class="navbar-brand" routerLink="inicio">
+        <img
+          src="favicon.ico"
+          class="img-fluid"
+          width="36"
+          alt="Angular Logo"
+        />
+      </a>
+
+      <!-- { Boton pantalla telefono } -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <!-- { Inicio } -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="inicio">
+              <i class="bi bi-house-door-fill me-1"></i> Inicio
+            </a>
+          </li>
+
+          <!-- { Cuestionario } -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="cuestionario">
+              <i class="bi bi-question-square-fill"></i> Cuestionario
+            </a>
+          </li>
+
+          <!-- { Adivina Numero } -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="adivina-numero">
+              <i class="bi bi-7-square-fill me-1"></i> Adivina Numero
+            </a>
+          </li>
+
+          <!-- { Filtro Prducto } -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="filtro-producto">
+              <i class="bi bi-columns-gap me-1"></i> Filtro Prducto
+            </a>
+          </li>
+
+          <!-- { Portal Peliculas } -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="portal-perliculas">
+              <i class="bi bi-film me-1"></i> Portal Peliculas
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

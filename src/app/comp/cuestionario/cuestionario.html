@@ -1,1 +1,17 @@
-<p>cuestionario works!</p>
+<section>
+  <div class="alert alert-secondary text-center">
+    <h1>Cuestionario</h1>
+  </div>
+  <div class="alert alert-secondary">
+    <h3 class="mb-4">
+      1. Indicar si es (V) o (F) los siguientes enunciados, justifique
+      brevemente.
+    </h3>
+
+    <div class="accordion" id="cuestionarioAccordion">
+      @for (pregunta of preguntas; track pregunta.id) {
+      <app-pregunta [pregunta]="pregunta" idAcordion="cuestionarioAccordion" />
+      }
+    </div>
+  </div>
+</section>
