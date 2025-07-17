@@ -1,1 +1,183 @@
-<p>portal-peliculas works!</p>
+<section>
+  <div class="alert alert-secondary text-center">
+    <div class="d-flex justify-content-between align-items-center">
+      <h1 class="mb-0">Películas</h1>
+      <button
+        class="btn btn-primary"
+        (click)="mostrarFormulario = !mostrarFormulario"
+      >
+        {{ mostrarFormulario ? "Ocultar Formulario" : "Registrar Película" }}
+      </button>
+    </div>
+  </div>
+
+  <!-- mostrar el formulario -->
+  @if (mostrarFormulario) {
+  <form
+    [formGroup]="form"
+    (ngSubmit)="guardar()"
+    class="card card-body my-3 shadow-sm"
+  >
+    <div class="row g-3">
+      <!-- Nombre -->
+      <div class="col-md-4">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input
+          id="nombre"
+          type="text"
+          formControlName="nombre"
+          class="form-control"
+          placeholder="nombre"
+        />
+        @if (form.get('nombre')?.touched && form.get('nombre')?.invalid) {
+        <div class="text-danger small mt-1">
+          @if (form.get('nombre')?.errors?.['required']) { El nombre es
+          obligatorio. } @if (form.get('nombre')?.errors?.['minlength']) {
+          Mínimo
+          {{ form.get('nombre')?.errors?.['minlength'].requiredLength }}
+          caracteres. } @if (form.get('nombre')?.errors?.['maxlength']) { Máximo
+          {{ form.get('nombre')?.errors?.['maxlength'].requiredLength }}
+          caracteres. } @if (form.get('nombre')?.errors?.['pattern']) { Solo se
+          permiten letras y espacios. }
+        </div>
+        }
+      </div>
+
+      <!-- Estreno -->
+      <div class="col-md-2">
+        <label for="estreno" class="form-label">Año de estreno</label>
+        <input
+          id="estreno"
+          type="number"
+          formControlName="estreno"
+          class="form-control"
+          placeholder="estreno"
+        />
+        @if (form.get('estreno')?.touched && form.get('estreno')?.invalid) {
+        <div class="text-danger small mt-1">
+          @if (form.get('estreno')?.errors?.['required']) { El año de estreno es
+          obligatorio. } @if (form.get('estreno')?.errors?.['min']) { Año
+          mínimo: {{ form.get('estreno')?.errors?.['min'].min }}. } @if
+          (form.get('estreno')?.errors?.['max']) { Año máximo:
+          {{ form.get('estreno')?.errors?.['max'].max }}. }
+        </div>
+        }
+      </div>
+
+      <!-- Género -->
+      <div class="col-md-2">
+        <label for="genero" class="form-label">Género</label>
+        <input
+          id="genero"
+          type="text"
+          formControlName="genero"
+          class="form-control"
+          placeholder="género"
+        />
+        @if (form.get('genero')?.touched && form.get('genero')?.invalid) {
+        <div class="text-danger small mt-1">
+          @if (form.get('genero')?.errors?.['required']) { El género es
+          obligatorio. } @if (form.get('genero')?.errors?.['minlength']) {
+          Mínimo
+          {{ form.get('genero')?.errors?.['minlength'].requiredLength }}
+          caracteres. } @if (form.get('genero')?.errors?.['maxlength']) { Máximo
+          {{ form.get('genero')?.errors?.['maxlength'].requiredLength }}
+          caracteres. } @if (form.get('genero')?.errors?.['pattern']) { Solo
+          letras y espacios son permitidos. }
+        </div>
+        }
+      </div>
+
+      <!-- Duración -->
+      <div class="col-md-2">
+        <label for="duracion" class="form-label">Duración (min)</label>
+        <input
+          id="duracion"
+          type="number"
+          formControlName="duracion"
+          class="form-control"
+          placeholder="duración"
+        />
+        @if (form.get('duracion')?.touched && form.get('duracion')?.invalid) {
+        <div class="text-danger small mt-1">
+          @if (form.get('duracion')?.errors?.['required']) { La duración es
+          obligatoria. } @if (form.get('duracion')?.errors?.['min']) { Mínimo
+          permitido: {{ form.get('duracion')?.errors?.['min'].min }} minutos. }
+          @if (form.get('duracion')?.errors?.['max']) { Máximo permitido:
+          {{ form.get('duracion')?.errors?.['max'].max }} minutos. }
+        </div>
+        }
+      </div>
+
+      <!-- Calificación -->
+      <div class="col-md-2">
+        <label for="calificacion" class="form-label">Calificación (1-10)</label>
+        <input
+          id="calificacion"
+          type="number"
+          formControlName="calificacion"
+          class="form-control"
+          placeholder="calificación"
+          step="0.1"
+        />
+        @if (form.get('calificacion')?.touched &&
+        form.get('calificacion')?.invalid) {
+        <div class="text-danger small mt-1">
+          @if (form.get('calificacion')?.errors?.['required']) { La calificación
+          es obligatoria. } @if (form.get('calificacion')?.errors?.['min']) {
+          Mínimo: {{ form.get('calificacion')?.errors?.['min'].min }}. } @if
+          (form.get('calificacion')?.errors?.['max']) { Máximo:
+          {{ form.get('calificacion')?.errors?.['max'].max }}. } @if
+          (form.get('calificacion')?.errors?.['pattern']) { Solo se permite un
+          decimal (ej. 8.5). }
+        </div>
+        }
+      </div>
+
+      <!-- Botones -->
+      <div class="col-12 d-flex justify-content-end gap-2 mt-3">
+        <button type="submit" class="btn btn-success" [disabled]="form.invalid">
+          Guardar
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="limpiar()">
+          Limpiar
+        </button>
+      </div>
+    </div>
+  </form>
+  }
+
+  <div class="alert alert-secondary">
+    <div class="row g-4">
+      @if (peliculas.length === 0) {
+      <div class="col-12 text-center">
+        <p class="text-muted">No hay películas registradas.</p>
+      </div>
+      } @else { @for (p of peliculas; track p.id) {
+      <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title text-primary mb-2">
+              {{ p.nombre }}
+            </h5>
+            <ul class="list-unstyled small text-muted mb-3">
+              <li>Estreno: {{ p.estreno }}</li>
+              <li>Género: {{ p.genero }}</li>
+              <li>Duración: {{ p.duracion }} min</li>
+              <li>Calificación: {{ p.calificacion }}/10</li>
+            </ul>
+          </div>
+          <div class="card-footer bg-white border-0 text-center">
+            <button
+              class="btn btn-sm btn-danger mb-2"
+              (click)="eliminar(p.id!)"
+            >
+              Eliminar
+            </button>
+          </div>
+        </div>
+      </div>
+      } }
+    </div>
+  </div>
+</section>
