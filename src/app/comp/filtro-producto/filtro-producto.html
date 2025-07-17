@@ -1,1 +1,119 @@
-<p>filtro-producto works!</p>
+<section>
+  <div class="alert alert-secondary text-center">
+    <h1>Filtro Producto</h1>
+  </div>
+
+  <div class="alert alert-secondary">
+    <h3 class="mb-4">Filtrar productos por marca y precio</h3>
+
+    <div class="row">
+      <!-- Filtros -->
+      <div class="col-md-3 border border-2 p-3 me-2">
+        <p class="badge bg-success">Formulario</p>
+
+        <div class="container bg-light border border-2 p-3 rounded">
+          <!-- Buscar texto -->
+          <div class="mb-3">
+            <label class="form-label">Buscar por nombre o marca</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="filtro"
+              placeholder="Ingrese nombre o marca"
+              name="filtro"
+            />
+          </div>
+
+          <!-- Precios -->
+          <div class="row mb-3">
+            <div class="col">
+              <label class="form-label">Precio mínimo</label>
+              <input
+                type="number"
+                class="form-control"
+                [(ngModel)]="precioMin"
+                placeholder="Mínimo"
+                name="precioMin"
+              />
+            </div>
+            <div class="col">
+              <label class="form-label">Precio máximo</label>
+              <input
+                type="number"
+                class="form-control"
+                [(ngModel)]="precioMax"
+                placeholder="Máximo"
+                name="precioMax"
+              />
+            </div>
+          </div>
+
+          <!-- Marca -->
+          <div class="mb-3">
+            <label class="form-label">Marca</label>
+            <select
+              class="form-select"
+              [(ngModel)]="marcaSeleccionada"
+              name="marca"
+            >
+              <option value="TODAS">TODAS LAS MARCAS</option>
+              @for (marca of marcasUnicas; track $index) {
+              <option [value]="marca">{{ marca }}</option>
+              }
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resultados -->
+      <div class="col-md-8 border border-2 p-3">
+        <p class="badge bg-success">Resultados</p>
+
+        <div class="table-responsive mt-2 rounded">
+          <table class="table table-striped table-hover align-middle">
+            <thead class="bg-primary text-white">
+              <tr>
+                <th>ID</th>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Stock</th>
+                <th>Precio</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for ( p of productos | buscar: filtro : precioMin : precioMax :
+              marcaSeleccionada; track p.id ) {
+              <tr>
+                <td>{{ p.id }}</td>
+                <td>
+                  <img
+                    [src]="p.imagen"
+                    [alt]="p.nombre"
+                    class="img-thumbnail rounded"
+                    style="width: 50px; height: 50px; object-fit: contain"
+                  />
+                </td>
+                <td>{{ p.nombre | uppercase }}</td>
+                <td>{{ p.marca | titlecase }}</td>
+                <td>{{ p.modelo }}</td>
+                <td>{{ p.stock }}</td>
+                <td class="fw-bold">
+                  {{ p.precio | currency : "PEN" : "S/ " : "1.2-2" }}
+                </td>
+              </tr>
+              } @empty {
+              <tr>
+                <td colspan="8" class="text-center text-muted">
+                  No se encontraron productos
+                </td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
